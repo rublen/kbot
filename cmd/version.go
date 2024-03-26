@@ -1,6 +1,5 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -24,6 +23,7 @@ to quickly create a Cobra application.`,
 		fmt.Println(appVersion)
 	},
 }
+
 // Application version
 var appVersion = "Version"
 
