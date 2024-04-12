@@ -1,9 +1,11 @@
-FROM golang:1.22 as builder
+FROM --platform=$BUILDPLATFORM golang:1.22 as builder
+ARG BUILDPLATFORM=linux/amd64
 
 WORKDIR /go/src/app
 
 COPY . .
-RUN make build
+
+RUN make build BUILDPLATFORM=$BUILDPLATFORM
 
 FROM scratch
 WORKDIR /
