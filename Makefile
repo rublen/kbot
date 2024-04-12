@@ -1,4 +1,4 @@
-REGISTRY=rublen
+REGISTRY=europe-central2-docker.pkg.dev/k8s-k9s-kub/kbot
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 APP_NAME=$(shell basename $(shell git remote get-url origin) .git)
 IMAGE_NAME=${REGISTRY}/${APP_NAME}:${VERSION}-${target_arch}
@@ -46,3 +46,4 @@ windows: test_vars format get image
 clean:
 	rm -rf kbot
 	rm -rf kbot.exe
+	docker rmi ${IMAGE_NAME}
