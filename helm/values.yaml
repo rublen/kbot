@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: rublen
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0-6b67a36"
+  tag: "v1.0-d02a05c"
 
 secret:
   name: "kbot"
