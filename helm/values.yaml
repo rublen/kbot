@@ -8,6 +8,7 @@ image:
   repository: rublen
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0-d02a05c"
+  arch: "amd64"
 
 secret:
   name: "kbot"
