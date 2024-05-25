@@ -23,17 +23,17 @@ jobs:
         run: make test
 
       - name: gar_auth
-          uses: "google-github-actions/auth@v1"
+          uses: google-github-actions/auth@v1
           with:
-            credentials_json: "${{ secrets.SERVICE_ACCOUNT_KEY }}"
+            credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }}
 
-      - name: "Set up Cloud SDK"
-        uses: "google-github-actions/setup-gcloud@v1"
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
 
-      - name: "Use gcloud CLI"
-        run: "gcloud info"
+      - name: Use gcloud CLI
+        run: gcloud info
 
-      - name: "Docker auth"
+      - name: Docker auth
         run: |-
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
