@@ -22,7 +22,7 @@ jobs:
       - name: Run test
         run: make test
 
-      - id: "auth"
+      - name: gar_auth
           uses: "google-github-actions/auth@v1"
           with:
             credentials_json: "${{ secrets.SERVICE_ACCOUNT_KEY }}"
