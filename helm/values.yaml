@@ -8,7 +8,7 @@ image:
   registry: "europe-central2-docker.pkg.dev"
   repository: kbot
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.3-d02a05c"
+  tag: "v1.0.0-${GITHUB_SHA::7}"
   os: linux
   arch: amd64
 
