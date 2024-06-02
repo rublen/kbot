@@ -8,7 +8,7 @@ env:
   PROJECT_ID: k8s-k9s-kub
   REGION: europe-central2
   GAR_LOCATION: europe-central2-docker.pkg.dev/k8s-k9s-kub/kbot
-  SHORT_SHA: ${GITHUB_SHA::6}
+  SHORT_SHA: ${GITHUB_SHA::7}
 
 jobs:
   ci:
@@ -38,8 +38,8 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}
+        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
         working-directory: .
 
       - name: Push image
-        run: docker push ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}
+        run: docker push ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
