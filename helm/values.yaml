@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  registry: "ghcr.io"
-  repository: rublen/kbot
+  registry: "europe-central2-docker.pkg.dev"
+  repository: kbot
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0-d02a05c"
+  tag: "v1.0.3-d02a05c"
   os: linux
   arch: amd64
 
