@@ -3,7 +3,7 @@ name: Kbot CI/CD
 on:
   push:
     branches:
-      - main
+      - development
 env:
   PROJECT_ID: k8s-k9s-kub
   REGION: europe-central2
@@ -37,7 +37,7 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3
+        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{git rev-parse --short "$GITHUB_SHA"}}
         working-directory: .
 
       - name: Push image
