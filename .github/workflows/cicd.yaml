@@ -37,7 +37,7 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{git rev-parse --short "$GITHUB_SHA"}}
+        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${GITHUB_SHA::6}
         working-directory: .
 
       - name: Push image
