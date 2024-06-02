@@ -38,8 +38,8 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
+        run: docker build . --tag ${{ env.GAR_LOCATION }}:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
         working-directory: .
 
       - name: Push image
-        run: docker push ${{ env.GAR_LOCATION }}/kbot:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
+        run: docker push ${{ env.GAR_LOCATION }}:v1.0.3-${{ env.SHORT_SHA }}-linux-amd64
