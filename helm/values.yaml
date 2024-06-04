@@ -8,7 +8,7 @@ image:
   registry: ghcr.io
   repository: rublen/kbot
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.0.0-7b4009f
+  tag: v1.0.5-8fda34a
   os: linux
   arch: amd64
 
