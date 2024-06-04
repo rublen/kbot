@@ -25,7 +25,7 @@ to quickly create a Cobra application.`,
 }
 
 // Application version
-var appVersion = "Version"
+var appVersion = "v1.0.4"
 
 func init() {
 	rootCmd.AddCommand(versionCmd)

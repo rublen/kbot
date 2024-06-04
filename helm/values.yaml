@@ -8,11 +8,11 @@ image:
   registry: ghcr.io
   repository: rublen/kbot
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.0-${GITHUB_SHA::7}"
+  tag: v1.0.0-7b4009f
   os: linux
   arch: amd64
 
 secret:
-  name: "kbot"
-  env: "TELE_TOKEN"
-  key: "token"
+  name: kbot
+  env: TELE_TOKEN
+  key: token
