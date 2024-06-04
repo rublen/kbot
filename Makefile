@@ -1,5 +1,6 @@
 REGISTRY=ghcr.io/rublen
-VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+# VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+VERSION=v1.0.5-$(shell git rev-parse --short HEAD)
 APP_NAME=$(shell basename $(shell git remote get-url origin) .git)
 IMAGE_NAME=${REGISTRY}/${APP_NAME}:${VERSION}-${target_os}-${target_arch}
 
