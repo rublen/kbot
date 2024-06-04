@@ -5,9 +5,7 @@ on:
     branches:
       - development
 env:
-  PROJECT_ID: k8s-k9s-kub
-  REGION: europe-central2
-  GAR_LOCATION: europe-central2-docker.pkg.dev/k8s-k9s-kub/kbot
+  REGISTRY: ghcr.io/rublen/kbot
   SHORT_SHA: ${GITHUB_SHA::7}
 
 jobs:
@@ -22,24 +20,16 @@ jobs:
       - name: Run test
         run: make test
 
-      - name: gar_auth
-        uses: google-github-actions/auth@v1
+      - name: ghcr_auth
+        uses: docker/login-action@v3
         with:
-          credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1
-
-      - name: Use gcloud CLI
-        run: gcloud info
-
-      - name: Docker auth
-        run: |-
-          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build image
-        run: docker build . --tag ${{ env.GAR_LOCATION }}/kbot:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
+        run: docker build . --tag ${{ env.REGISTRY }}:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
         working-directory: .
 
       - name: Push image
-        run: docker push ${{ env.GAR_LOCATION }}/kbot:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
+        run: docker push ${{ env.REGISTRY }}:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64

@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  registry: "europe-central2-docker.pkg.dev"
-  repository: kbot
+  registry: ghcr.io
+  repository: rublen/kbot
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0.0-${GITHUB_SHA::7}"
   os: linux

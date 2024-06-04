@@ -1,7 +1,7 @@
-REGISTRY=europe-central2-docker.pkg.dev/k8s-k9s-kub/kbot
+REGISTRY=ghcr.io/rublen
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 APP_NAME=$(shell basename $(shell git remote get-url origin) .git)
-IMAGE_NAME=${REGISTRY}/${APP_NAME}:${VERSION}-${target_arch}
+IMAGE_NAME=${REGISTRY}/${APP_NAME}:${VERSION}-${target_os}-${target_arch}
 
 target_os?=linux
 target_arch?=$(shell dpkg --print-architecture)
