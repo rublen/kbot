@@ -3,7 +3,7 @@ name: Kbot CI/CD
 on:
   push:
     branches:
-      - development
+      - develop
 env:
   REGISTRY: ghcr.io/rublen/kbot
   SHORT_SHA: ${GITHUB_SHA::7}
