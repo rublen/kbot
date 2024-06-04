@@ -33,3 +33,6 @@ jobs:
 
       - name: Push image
         run: docker push ${{ env.REGISTRY }}:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
+        permissions:
+          contents: read
+          packages: write
