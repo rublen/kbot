@@ -28,8 +28,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build image
-        run: docker build . --tag ${{ env.REGISTRY }}:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
-        working-directory: .
+        run: make image
 
       - name: Push image
-        run: docker push ${{ env.REGISTRY }}:v1.0.0-${{ env.SHORT_SHA }}-linux-amd64
+        run: make push
